@@ -4,13 +4,14 @@ package com.example.studentmanagementsystemm.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "students")
+@Table(name = "students") //The part that provides the creation of the table name in the database connection
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // The part used to create the names of the columns in the table in the database connection
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
