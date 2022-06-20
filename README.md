@@ -1,4 +1,4 @@
-# Student-Management-System
+# Student Management System Application 
 
 * Patika.dev
 * Emlak.jet Bootcamp
