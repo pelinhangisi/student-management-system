@@ -21,6 +21,8 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+
+    //Constuctor Methods
     public Student(){}
 
     public Student(String firstName, String lastName, String email) {
@@ -30,6 +32,7 @@ public class Student {
         this.email = email;
     }
 
+    // Fields Getters and Setters
     public Long getId() {
         return id;
     }
