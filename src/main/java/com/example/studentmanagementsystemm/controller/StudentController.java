@@ -24,7 +24,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    // liste öğrencileri ve dönüş modu ve görünümü işlemek için yöntem
+    // handler method to handle list students and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
@@ -33,7 +33,7 @@ public class StudentController {
 
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {
-        // öğrenci formu verilerini tutmak için öğrenci nesnesi oluştur
+        // create student object to hold student from data
         Student student = new Student();
         model.addAttribute("student", student);
         return "create_student";
@@ -57,19 +57,19 @@ public class StudentController {
     public String updateStudent(@PathVariable Long id,
                                 @ModelAttribute("student") Student student,
                                 Model model) {
-        // id ile veritabanından öğrenci almak
+        // take student to db from Id
         Student existingStudent = studentService.getStudentById(id);
         existingStudent.setId(id);
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
 
-        // güncellenen öğrenciyi kaydetmek
+        // update and save student
         studentService.updateStudent(existingStudent);
         return "redirect:/students";
     }
 
-    // öğrenci silme isteğini işlemek için yöntem
+    // delete student
     @GetMapping("/students/{id}")
     public String deleteStudent(@PathVariable Long id){
         studentService.deleteStudentById(id);
